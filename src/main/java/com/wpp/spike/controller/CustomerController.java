@@ -20,14 +20,11 @@ public class CustomerController {
    
    @Autowired
    private CustomerService service;
+   
    @ResponseStatus(HttpStatus.CREATED)
    @RequestMapping(method=RequestMethod.POST)
    public void createCustomer(@RequestBody Customer customer) {
-      //service.insert(customer);
-      logger.info("info");
-      logger.debug("debug");
-      logger.warn("warn");
-      logger.error("error");
+      service.insert(customer);
    }
    
    
