@@ -1,5 +1,7 @@
 package com.wpp.spike.controller;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,9 @@ public class CustomerController {
    @ResponseStatus(HttpStatus.CREATED)
    @RequestMapping(method=RequestMethod.POST)
    public void createCustomer(@RequestBody Customer customer) {
+      customer.setCreatetime(new Date());
       service.insert(customer);
+      logger.info("insert "+customer.getUsername()+" success");
    }
    
    
